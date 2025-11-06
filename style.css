@@ -1,0 +1,259 @@
+/* --- Configurações Gerais --- */
+:root {
+    --cor-primaria: #0a2d4d; /* Azul escuro */
+    --cor-secundaria: #007bff; /* Azul vibrante */
+    --cor-fundo: #f1f1f1;
+    --cor-texto: #333; /* Corrigido de #f0060 */
+    --cor-borda: #ddd;
+    --cor-sucesso: #28a745;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* --- Cabeçalho --- */
+header {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* --- Conteúdo Principal --- */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* --- Abas de Navegação --- */
+.tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--cor-borda);
+}
+.tab-link {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    background-color: transparent;
+    color: var(--cor-secundaria);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px; /* Alinha com a borda principal */
+}
+.tab-link.active {
+    color: var(--cor-primaria);
+    border-bottom-color: var(--cor-primaria);
+}
+
+/* --- Conteúdo das Abas --- */
+.tab-content {
+    display: none; /* Escondido por padrão */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.tab-content.active {
+    display: block; /* Visível quando ativo */
+}
+
+h2 {
+    color: var(--cor-primaria);
+    margin-top: 0;
+    border-bottom: 2px solid var(--cor-fundo);
+    padding-bottom: 10px;
+}
+
+/* --- Estilos do Formulário --- */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    font-size: 1rem;
+}
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Estilo customizado para Anexo de Arquivo */
+.form-group input[type="file"]::file-selector-button {
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+.form-group input[type="file"]::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+/* Checkbox de Anonimato */
+.form-check {
+    display: flex;
+    align-items: center;
+    background-color: #fffbef;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ffeeba;
+    margin-bottom: 20px;
+}
+.form-check input {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+}
+#campos-identificacao {
+    display: none; /* Começa escondido */
+    border-left: 4px solid var(--cor-secundaria);
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+/* --- Botões --- */
+.btn {
+    background-color: var(--cor-sucesso);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.btn:hover {
+    background-color: #218838;
+}
+.btn-secondary {
+    background-color: var(--cor-secundaria);
+    color: white; /* Adicionado para garantir legibilidade */
+    padding: 12px 25px; /* Adicionado para consistência */
+    border: none; /* Adicionado para consistência */
+    border-radius: 6px; /* Adicionado para consistência */
+    cursor: pointer; /* Adicionado para consistência */
+    font-size: 1.1rem; /* Adicionado para consistência */
+    font-weight: 600; /* Adicionado para consistência */
+    transition: background-color 0.2s; /* Adicionado para consistência */
+}
+.btn-secondary:hover {
+    background-color: #0056b3;
+}
+
+/* --- Seção de Acompanhamento e Chat --- */
+#area-andamento {
+    display: none; /* Só aparece após a "busca" */
+}
+.status-denuncia {
+    padding: 20px;
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+.status-denuncia p {
+    margin: 5px 0;
+}
+.status-denuncia strong {
+    color: var(--cor-primaria);
+}
+
+/* Layout do Chat Interativo (Visual) */
+.chat-container {
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    overflow: hidden; /* Para o border-radius funcionar no 'chat-messages' */
+}
+.chat-header {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 15px;
+    display: flex; /* Adicionado para alinhar mensagens */
+    flex-direction: column; /* Adicionado para alinhar mensagens */
+}
+/* Mensagens de exemplo */
+.msg {
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+.msg-recebida {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    align-self: flex-start;
+}
+.msg-enviada {
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    margin-left: auto; /* Alinha à direita */
+    align-self: flex-end; /* Garante alinhamento */
+}
+.chat-input {
+    display: flex;
+    border-top: 1px solid var(--cor-borda);
+}
+.chat-input textarea {
+    flex-grow: 1;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    resize: none;
+    height: 50px;
+}
+.chat-input button {
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* --- Rodapé --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
