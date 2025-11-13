@@ -1,11 +1,11 @@
 /* --- Configurações Gerais --- */
 :root {
     --cor-primaria: #0a2d4d; /* Azul escuro */
-    --cor-secundaria: #007bff; /* Azul vibrante */
+    --cor-secundaria: #0d539e; /* Azul vibrante */
     --cor-fundo: #f1f1f1;
     --cor-texto: #333; /* Corrigido de #f0060 */
     --cor-borda: #ddd;
-    --cor-sucesso: #28a745;
+    --cor-sucesso: #0d539e;
 }
 
 body {
@@ -117,28 +117,6 @@ h2 {
 }
 .form-group input[type="file"]::file-selector-button:hover {
     background-color: #0056b3;
-}
-
-/* Checkbox de Anonimato */
-.form-check {
-    display: flex;
-    align-items: center;
-    background-color: #fffbef;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #ffeeba;
-    margin-bottom: 20px;
-}
-.form-check input {
-    margin-right: 12px;
-    width: 18px;
-    height: 18px;
-}
-#campos-identificacao {
-    display: none; /* Começa escondido */
-    border-left: 4px solid var(--cor-secundaria);
-    padding-left: 15px;
-    margin-top: 20px;
 }
 
 /* --- Botões --- */
@@ -256,4 +234,10 @@ footer {
     padding: 20px;
     font-size: 0.9rem;
     color: #888;
+}
+
+#btn1{
+    display: flex;
+    justify-content: center;
+    
 }

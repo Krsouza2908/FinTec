@@ -1,0 +1,199 @@
+/* --- Configurações Gerais --- */
+        :root {
+            --azul-escuro: #0d539e;
+            --azul-claro: #0a2d4d;
+            --azul-claro-fundo: #f0f8ff; /* Um azul bem claro para o fundo da imagem */
+            --branco: #ffffff;
+            --preto-texto: #333;
+            --cinza-claro: #f4f4f4;
+            --sombra: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, #1a1a5a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- Container Principal --- */
+        .container-principal {
+            width: 100%;
+            max-width: 900px; /* Aumentado para comportar a imagem */
+            display: flex;
+            background-color: var(--branco);
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+        }
+
+        /* --- Lado Esquerdo (Formulário) --- */
+        .lado-formulario {
+            flex-grow: 1; /* O formulário cresce para preencher o espaço */
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%; /* Em telas pequenas, ocupa tudo */
+        }
+
+        /* --- Lado Direito (Imagem) --- */
+        .lado-imagem {
+            display: none; /* Escondido em telas pequenas */
+            flex-basis: 45%; /* Define uma largura base */
+            background-color: var(--azul-claro-fundo);
+            padding: 40px;
+            box-sizing: border-box;
+            
+            /* Centraliza o conteúdo da imagem */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Media query para telas maiores (ex: tablets e desktops) */
+        @media (min-width: 768px) {
+            .lado-formulario {
+                width: 55%;
+                flex-basis: 55%;
+            }
+            .lado-imagem {
+                display: flex; /* Mostra o lado da imagem */
+            }
+        }
+
+        /* --- NOVO: Estilos do Conteúdo da Imagem --- */
+        .conteudo-imagem {
+            text-align: center;
+            color: var(--azul-escuro);
+        }
+        
+        .conteudo-imagem img {
+            width: 100%;
+            max-width: 250px; /* Limita o tamanho da imagem */
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .conteudo-imagem h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .conteudo-imagem p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555; /* Um cinza mais escuro para o texto */
+        }
+        /* --- Fim dos Estilos da Imagem --- */
+
+
+        /* --- Formulário (Seu código, adaptado) --- */
+        .card {
+            padding: 0; /* Removido padding para integrar */
+            text-align: left; /* Alinhado à esquerda para elegância */
+            background: none; /* Fundo já é branco */
+        }
+
+        .title {
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--azul-escuro); /* Cor primária */
+        }
+
+        .field {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            background-color: var(--cinza-claro); /* Fundo do input */
+            border-radius: 8px;
+            padding: .75em 1em;
+            border: 1px solid transparent;
+            transition: border 0.3s;
+        }
+        
+        .field:focus-within {
+             border: 1px solid var(--azul-claro); /* Destaque ao focar */
+        }
+
+        .input-icon {
+            height: 1.2em;
+            width: 1.2em;
+            fill: var(--azul-claro); /* Cor do ícone */
+        }
+
+        .input-field {
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            color: var(--preto-texto); /* Cor do texto do input */
+            font-size: 1rem;
+        }
+        
+        .input-field::placeholder {
+            color: #888;
+        }
+
+        /* Botões */
+        .btn {
+            margin: 1.5rem 0 1rem 0; /* Espaçamento */
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 0.8em 1.2em;
+            background-color: var(--azul-claro); /* Cor do botão */
+            color: var(--branco); /* Cor do texto do botão */
+            box-shadow: 0 4px 15px rgba(98, 181, 237, 0.4);
+            transition: all .3s ease-in-out;
+            width: 100%; /* Botão largo */
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--azul-escuro); /* Cor ao passar o mouse */
+            color: var(--branco);
+            box-shadow: 0 6px 20px rgba(12, 11, 55, 0.3);
+        }
+
+        .btn-link {
+            color: var(--azul-escuro);
+            display: block;
+            font-size: 0.9em;
+            transition: color .3s ease-out;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-link:hover {
+            color: var(--azul-claro);
+            text-decoration: underline;
+        }
+        
+        /* --- Status do Login --- */
+        #status-login {
+            margin-top: 15px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .status-carregando {
+            color: var(--preto-texto);
+        }
+        .status-sucesso {
+            color: #28a745; /* Verde */
+        }
+        .status-erro {
+            color: #dc3545; /* Vermelho */
+        }
