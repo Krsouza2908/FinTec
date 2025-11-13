@@ -1,243 +1,316 @@
-/* --- Configurações Gerais --- */
-:root {
-    --cor-primaria: #0a2d4d; /* Azul escuro */
-    --cor-secundaria: #0d539e; /* Azul vibrante */
-    --cor-fundo: #f1f1f1;
-    --cor-texto: #333; /* Corrigido de #f0060 */
-    --cor-borda: #ddd;
-    --cor-sucesso: #0d539e;
-}
+/* --- Configurações Gerais (Mesma paleta do Login) --- */
+     :root {
+            --azul-escuro: #63b3eb;
+            --azul-claro: #0c0b37;
+            --azul-claro-fundo: #f0f8ff; 
+            --branco: #ffffff;
+            --preto-texto: #333;
+            --cinza-claro: #f4f7f6; /* Usado nos inputs */
+            --cor-borda: #ddd;
+            --cor-sucesso: #0d539e;
+            --sombra: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            /* Fundo gradiente igual ao login */
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, #1a1a5a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
 
-/* --- Cabeçalho --- */
-header {
-    background-color: var(--cor-primaria);
-    color: white;
-    padding: 20px 40px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+        /* --- O <main> se tornou o .container-principal --- */
+        .container-principal {
+            width: 100%;
+            max-width: 900px; /* Largura do card */
+            display: flex;
+            background-color: var(--branco);
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
+        /* --- Coluna Esquerda (Formulário) --- */
+        .lado-formulario {
+            flex-grow: 1;
+            padding: 40px;
+            width: 100%;
+        }
 
-/* --- Conteúdo Principal --- */
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-}
+        /* --- Coluna Direita (Imagem) --- */
+        .lado-imagem {
+            display: none; /* Escondido em telas pequenas */
+            flex-basis: 45%;
+            background-color: var(--azul-claro-fundo);
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* --- Abas de Navegação --- */
-.tabs {
-    display: flex;
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--cor-borda);
-}
-.tab-link {
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: none;
-    background-color: transparent;
-    color: var(--cor-secundaria);
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px; /* Alinha com a borda principal */
-}
-.tab-link.active {
-    color: var(--cor-primaria);
-    border-bottom-color: var(--cor-primaria);
-}
+        /* Media query para telas maiores */
+        @media (min-width: 768px) {
+            .lado-formulario {
+                width: 55%;
+                flex-basis: 55%;
+            }
+            .lado-imagem {
+                display: flex; 
+            }
+        }
 
-/* --- Conteúdo das Abas --- */
-.tab-content {
-    display: none; /* Escondido por padrão */
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.tab-content.active {
-    display: block; /* Visível quando ativo */
-}
+        /* Estilos do Conteúdo da Imagem */
+        .conteudo-imagem {
+            text-align: center;
+            color: var(--azul-escuro);
+        }
+        .conteudo-imagem img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .conteudo-imagem h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            border: none; /* Remove a borda do h2 original */
+        }
+        .conteudo-imagem p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+        }
 
-h2 {
-    color: var(--cor-primaria);
-    margin-top: 0;
-    border-bottom: 2px solid var(--cor-fundo);
-    padding-bottom: 10px;
-}
+        /* --- Título (Substituindo o <header>) --- */
+        .novo-titulo {
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-top: 0;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .novo-titulo {
+                text-align: left;
+            }
+        }
 
-/* --- Estilos do Formulário --- */
-.form-group {
-    margin-bottom: 20px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea,
-.form-group input[type="file"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 6px;
-    box-sizing: border-box; /* Garante que o padding não quebre o layout */
-    font-size: 1rem;
-}
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
 
-/* Estilo customizado para Anexo de Arquivo */
-.form-group input[type="file"]::file-selector-button {
-    background-color: var(--cor-secundaria);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.2s;
-}
-.form-group input[type="file"]::file-selector-button:hover {
-    background-color: #0056b3;
-}
+        /* --- Abas de Navegação (Seu CSS original) --- */
+        .tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--cor-borda);
+        }
+        .tab-link {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            background-color: transparent;
+            color: var(--cor-secundaria);
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        .tab-link.active {
+            color: var(--cor-primaria);
+            border-bottom-color: var(--cor-primaria);
+        }
 
-/* --- Botões --- */
-.btn {
-    background-color: var(--cor-sucesso);
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.2s;
-}
-.btn:hover {
-    background-color: #218838;
-}
-.btn-secondary {
-    background-color: var(--cor-secundaria);
-    color: white; /* Adicionado para garantir legibilidade */
-    padding: 12px 25px; /* Adicionado para consistência */
-    border: none; /* Adicionado para consistência */
-    border-radius: 6px; /* Adicionado para consistência */
-    cursor: pointer; /* Adicionado para consistência */
-    font-size: 1.1rem; /* Adicionado para consistência */
-    font-weight: 600; /* Adicionado para consistência */
-    transition: background-color 0.2s; /* Adicionado para consistência */
-}
-.btn-secondary:hover {
-    background-color: #0056b3;
-}
+        /* --- Conteúdo das Abas (Seu CSS original) --- */
+        .tab-content {
+            display: none; 
+            background-color: white;
+            /* Removemos o padding/shadow pois agora ele está na coluna */
+        }
+        .tab-content.active {
+            display: block; 
+        }
 
-/* --- Seção de Acompanhamento e Chat --- */
-#area-andamento {
-    display: none; /* Só aparece após a "busca" */
-}
-.status-denuncia {
-    padding: 20px;
-    background-color: #e6f7ff;
-    border: 1px solid #b3e0ff;
-    border-radius: 6px;
-    margin-bottom: 25px;
-}
-.status-denuncia p {
-    margin: 5px 0;
-}
-.status-denuncia strong {
-    color: var(--cor-primaria);
-}
+        .tab-content h2 { /* Título de dentro da aba */
+            color: var(--cor-primaria);
+            margin-top: 0;
+            border-bottom: 2px solid var(--cor-fundo);
+            padding-bottom: 10px;
+        }
 
-/* Layout do Chat Interativo (Visual) */
-.chat-container {
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-    overflow: hidden; /* Para o border-radius funcionar no 'chat-messages' */
-}
-.chat-header {
-    background-color: var(--cor-primaria);
-    color: white;
-    padding: 10px 15px;
-    font-weight: 600;
-}
-.chat-messages {
-    height: 300px;
-    overflow-y: auto;
-    background-color: #fff;
-    padding: 15px;
-    display: flex; /* Adicionado para alinhar mensagens */
-    flex-direction: column; /* Adicionado para alinhar mensagens */
-}
-/* Mensagens de exemplo */
-.msg {
-    margin-bottom: 12px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    max-width: 80%;
-    word-wrap: break-word;
-}
-.msg-recebida {
-    background-color: var(--cor-fundo);
-    border: 1px solid var(--cor-borda);
-    align-self: flex-start;
-}
-.msg-enviada {
-    background-color: #d1e7dd;
-    border: 1px solid #badbcc;
-    margin-left: auto; /* Alinha à direita */
-    align-self: flex-end; /* Garante alinhamento */
-}
-.chat-input {
-    display: flex;
-    border-top: 1px solid var(--cor-borda);
-}
-.chat-input textarea {
-    flex-grow: 1;
-    border: none;
-    padding: 15px;
-    font-size: 1rem;
-    resize: none;
-    height: 50px;
-}
-.chat-input button {
-    background-color: var(--cor-secundaria);
-    color: white;
-    border: none;
-    padding: 0 20px;
-    cursor: pointer;
-    font-weight: 600;
-}
+        /* --- Estilos do Formulário (ADAPTADOS do Login) --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--preto-texto);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--cor-borda);
+            border-radius: 8px;
+            box-sizing: border-box; 
+            font-size: 1rem;
+            background-color: var(--cinza-claro); /* Fundo claro (do login) */
+            color: var(--preto-texto);
+            transition: border 0.3s;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus,
+        .form-group input[type="file"]:focus {
+            border-color: var(--azul-claro);
+            outline: none;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
 
-/* --- Rodapé --- */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #888;
-}
+        /* Input de arquivo (Botão customizado) */
+        .form-group input[type="file"]::file-selector-button {
+            background-color: var(--azul-claro);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.2s;
+        }
+        .form-group input[type="file"]::file-selector-button:hover {
+            background-color: var(--azul-escuro);
+        }
 
-#btn1{
-    display: flex;
-    justify-content: center;
-    
-}
+        /* --- Checkbox (Trazido do context index.html) --- */
+        .form-check {
+            display: flex;
+            align-items: center;
+            background-color: #fffbef;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ffeeba;
+            margin-bottom: 20px;
+        }
+        .form-check input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+        }
+        #campos-identificacao {
+            display: none; 
+            border-left: 4px solid var(--azul-claro);
+            padding-left: 15px;
+            margin-top: 20px;
+        }
+
+
+        /* --- Botões (ADAPTADOS do Login) --- */
+        .btn {
+            margin: 1rem 0;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            padding: 0.8em 1.2em;
+            background-color: var(--azul-claro); /* Cor do botão */
+            color: var(--branco); /* Cor do texto do botão */
+            box-shadow: 0 4px 15px rgba(98, 181, 237, 0.4);
+            transition: all .3s ease-in-out;
+            width: 100%; /* Botão largo */
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--azul-escuro); 
+            color: var(--branco);
+            box-shadow: 0 6px 20px rgba(12, 11, 55, 0.3);
+        }
+
+        #btn1{
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-secondary {
+            background-color: var(--azul-escuro);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn-secondary:hover {
+            background-color: var(--azul-claro);
+        }
+
+        /* --- Seção de Acompanhamento (Seu CSS original) --- */
+        #area-andamento {
+            display: none; 
+        }
+        .status-denuncia {
+            padding: 20px;
+            background-color: var(--azul-claro-fundo);
+            border: 1px solid var(--azul-claro);
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+        /* ... (Restante do seu CSS de chat, etc. ... */
+        .status-denuncia p { margin: 5px 0; }
+        .status-denuncia strong { color: var(--azul-escuro); }
+        .chat-container {
+            border: 1px solid var(--cor-borda);
+            border-radius: 8px;
+            overflow: hidden; 
+        }
+        .chat-header {
+            background-color: var(--azul-escuro);
+            color: white;
+            padding: 10px 15px;
+            font-weight: 600;
+        }
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            background-color: var(--branco);
+            border-top: 1px solid var(--cor-borda);
+            border-bottom: 1px solid var(--cor-borda);
+            padding: 15px;
+            display: flex; 
+            flex-direction: column; 
+        }
+        .msg { margin-bottom: 12px; padding: 10px 14px; border-radius: 10px; max-width: 80%; word-wrap: break-word; }
+        .msg-recebida { background-color: var(--cinza-claro); border: 1px solid var(--cor-borda); align-self: flex-start; }
+        .msg-enviada { background-color: #d1e7dd; border: 1px solid #badbcc; margin-left: auto; align-self: flex-end; }
+        .chat-input { display: flex; }
+        .chat-input textarea { flex-grow: 1; border: none; padding: 15px; font-size: 1rem; resize: none; height: 50px; }
+        .chat-input button { background-color: var(--azul-claro); color: white; border: none; padding: 0 20px; cursor: pointer; font-weight: 600; }
+        .chat-input button:hover { background-color: var(--azul-escuro); }
+
+        /* --- Rodapé --- */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cor-fundo);
+            font-size: 0.9rem;
+            color: #888;
+        }
