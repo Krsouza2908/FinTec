@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+}
+
+header {
+    background-color: #0c0b37; /* Usando cor do seu :root */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.filtro-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filtro-container label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filtro-container select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.report-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 5px solid #ccc; /* Cor padrão (não classificado) */
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.report-card h3 {
+    margin-top: 0;
+    color: #0c0b37;
+}
+
+.report-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.report-card small {
+    color: #555;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.risk-classifier {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.risk-classifier label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.risk-classifier select {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+/* Classes de Risco (para a borda) */
+.risk-baixo { border-left-color: #5cb85c; } /* Verde */
+.risk-medio { border-left-color: #f0ad4e; } /* Amarelo */
+.risk-alto { border-left-color: #d9534f; } /* Vermelho */
+.risk-nao-classificado { border-left-color: #ccc; } /* Cinza */
